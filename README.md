@@ -1,96 +1,180 @@
-\documentclass[a4paper,12pt]{article}
-\usepackage[utf8]{inputenc}
-\usepackage{hyperref}
-\usepackage{geometry}
-\geometry{margin=1in}
-\title{WiTrackv2: Wi-Fi Based Tracking System}
-\author{Parthdhamodikar0230}
-\date{September 2025}
-\begin{document}
-\maketitle
+# 🚀 WiTrackv2 
+### *Advanced Wi-Fi Device Tracking & Analysis System*
 
-\section*{Abstract}
-WiTrackv2 is an open-source, low-cost real-time tracking solution using ESP8266/ESP32 microcontrollers and Python. It scans nearby Wi-Fi devices, collects signal data, and visualizes results through a web dashboard.
+*Real-time Wi-Fi device tracking and signal analysis using ESP microcontrollers*
 
-\section*{Features}
-\begin{itemize}
-  \item Passive scanning of Wi-Fi networks and clients using ESP8266/ESP32
-  \item Collection of BSSID, SSID, RSSI, MAC addresses, and timestamps
-  \item UDP data transmission to a Python dashboard server
-  \item Real-time visualization of device locations and signal strength
-  \item Configurable scanning intervals and filtering by SSID/BSSID
-  \item Extensible Python server for data storage and analysis
-\end{itemize}
+---
 
-\section*{Prerequisites}
-\subsection*{Hardware}
-\begin{itemize}
-  \item ESP8266 or ESP32 development board
-  \item USB cable for programming
-\end{itemize}
-\subsection*{Software}
-\begin{itemize}
-  \item Arduino IDE (v1.8.x or later)
-  \item Python 3.7+ and \texttt{pip}
-  \item Arduino libraries:
-    \begin{itemize}
-      \item \texttt{ESP8266WiFi} (for ESP8266)
-      \item \texttt{WiFi} (for ESP32)
-      \item \texttt{WebSocketsServer}
-    \end{itemize}
-  \item Python packages:
-    \begin{itemize}
-      \item \texttt{flask}
-      \item \texttt{flask-socketio}
-      \item \texttt{pandas}
-      \item \texttt{plotly}
-    \end{itemize}
-\end{itemize}
+## 📋 **Table of Contents**
+- [🎯 Overview](#-overview)
+- [✨ Key Features](#-key-features) 
+- [🛠️ Hardware Requirements](#️-hardware-requirements)
+- [📦 Software Dependencies](#-software-dependencies)
+- [🚀 Quick Start](#-quick-start)
+- [📊 Dashboard Preview](#-dashboard-preview)
+- [⚙️ Configuration](#️-configuration)
+- [🔧 Troubleshooting](#-troubleshooting)
 
-\section*{Installation}
-\begin{enumerate}
-  \item Clone the repository:
-  \begin{verbatim}
-    git clone https://github.com/Parthdhamodikar0230/WiTrackv2.git
-    cd WiTrackv2
-  \end{verbatim}
-  \item Set up the Arduino code:
-    \begin{itemize}
-      \item Open \texttt{WiTrack.ino} in Arduino IDE
-      \item Install missing libraries via Sketch $\rightarrow$ Include Library $\rightarrow$ Manage Libraries
-      \item Update Wi-Fi credentials and UDP server IP/port in the sketch
-      \item Select the correct board and port, then upload
-    \end{itemize}
-  \item Install Python dependencies:
-  \begin{verbatim}
-    pip install -r requirements.txt
-  \end{verbatim}
-  \item Configure the Python server:
-    \begin{itemize}
-      \item Edit \texttt{server.py} for UDP port and dashboard parameters
-      \item (Optional) Adjust dashboard refresh rate and database path
-    \end{itemize}
-  \item Run the Python server:
-  \begin{verbatim}
-    python server.py
-  \end{verbatim}
-  \item Access the dashboard at \url{http://localhost:5000}
-\end{enumerate}
+---
 
-\section*{Usage}
-Ensure the ESP device is powered and connected to Wi-Fi. The device broadcasts scan data via UDP, and the dashboard visualizes detected devices on a live-updating plot and table.
+## 🎯 **Overview**
 
-\section*{Troubleshooting}
-\begin{itemize}
-  \item \textbf{ESP not connecting to Wi-Fi}: Verify SSID, password, and signal strength.
-  \item \textbf{Server not receiving data}: Match UDP port between sketch and \texttt{server.py}.
-  \item \textbf{Dashboard not loading}: Check Flask logs and ensure port 5000 is open.
-\end{itemize}
+WiTrackv2 is a **cutting-edge IoT solution** that transforms ESP8266/ESP32 microcontrollers into powerful Wi-Fi monitoring stations. Perfect for **cybersecurity research**, **crowd analysis**, and **IoT prototyping**.
 
-\section*{Contributing}
-Contributions are welcome! Fork the repository, submit issues or pull requests, improve documentation, tests, and functionality.
+### 🏆 **Why WiTrackv2?**
+- 📡 **Real-time monitoring** of nearby Wi-Fi devices
+- 💰 **Cost-effective** hardware solution (< ₹500)
+- 🌐 **Web-based dashboard** for live visualization
+- 📈 **RSSI analysis** for distance estimation
+- 🔒 **Passive scanning** - completely undetectable
+- 📊 **Export capabilities** for further analysis
 
-\section*{License}
-This project is licensed under the MIT License. See the \texttt{LICENSE} file for details.
+---
 
-\end{document}
+## ✨ **Key Features**
+
+### 🔍 **Scanning Capabilities**
+- ✅ Passive Wi-Fi network discovery
+- ✅ Device MAC address collection
+- ✅ Signal strength (RSSI) monitoring
+- ✅ Timestamp logging
+- ✅ BSSID/SSID filtering
+
+### 📊 **Data Analysis**
+- ✅ Real-time web dashboard
+- ✅ Interactive data visualization
+- ✅ CSV export functionality
+- ✅ Distance estimation algorithms
+- ✅ Device tracking over time
+
+---
+
+## 🛠️ **Hardware Requirements**
+
+| Component | Specification | Price Range |
+|-----------|---------------|-------------|
+| **Microcontroller** | ESP8266 NodeMCU / ESP32 DevKit | ₹200-400 |
+| **Power Supply** | USB Cable / 5V Adapter | ₹50-100 |
+| **Optional: Antenna** | 2.4GHz External Antenna | ₹100-200 |
+
+### 📋 **Recommended Setup**
+```
+ESP8266 NodeMCU v3 (Recommended for beginners)
+• Built-in USB-to-Serial converter
+• Onboard voltage regulator
+• 4MB Flash memory
+• Wi-Fi 802.11 b/g/n support
+```
+
+---
+
+## 📦 **Software Dependencies**
+
+### 🔧 **Arduino Environment**
+```bash
+# Required Libraries (Install via Library Manager)
+ESP8266WiFi      # Wi-Fi functionality
+WebSocketsServer # Real-time communication
+ArduinoJson      # Data serialization
+ESP8266WebServer # Web server capabilities
+```
+
+### 🐍 **Python Environment**
+```bash
+# Install dependencies
+pip install flask flask-socketio pandas plotly dash
+```
+
+---
+
+## 🚀 **Quick Start**
+
+### **Step 1: Hardware Setup**
+1. Connect ESP8266/ESP32 to your computer via USB
+2. Ensure drivers are installed for your board
+
+### **Step 2: Arduino Code**
+```cpp
+// 1. Open Arduino IDE
+// 2. Load WiTrack.ino
+// 3. Update these variables:
+const char* ssid = "YOUR_WIFI_NAME";
+const char* password = "YOUR_WIFI_PASSWORD";
+const char* udpAddress = "192.168.1.100"; // Your computer's IP
+```
+
+### **Step 3: Python Server**
+```bash
+# Clone repository
+git clone https://github.com/Parthdhamodikar0230/WiTrackv2.git
+cd WiTrackv2
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Run server
+python server.py
+```
+
+### **Step 4: Access Dashboard**
+🌐 **Open browser:** `http://localhost:5000`
+
+---
+
+## 📊 **Dashboard Preview**
+
+The WiTrackv2 dashboard provides:
+
+🔴 **Live Device Map** - Real-time device positions based on signal strength  
+📈 **RSSI Graphs** - Signal strength trends over time  
+📋 **Device Table** - Comprehensive device information  
+⚙️ **Control Panel** - Scanning parameters and filters  
+📥 **Export Tools** - CSV download for analysis  
+
+---
+
+## ⚙️ **Configuration**
+
+### **ESP8266 Settings**
+```cpp
+// Scanning Configuration
+#define SCAN_INTERVAL 5000    // 5 second intervals
+#define MAX_NETWORKS 20       // Maximum networks per scan
+#define UDP_PORT 4210         // Communication port
+```
+
+### **Python Server Settings**
+```python
+# server.py Configuration
+HOST = '0.0.0.0'              # Listen on all interfaces
+PORT = 5000                   # Web dashboard port
+UDP_PORT = 4210               # ESP communication port
+DATA_FILE = 'scan_data.csv'   # Data storage file
+```
+
+---
+
+## 🔧 **Troubleshooting**
+
+### ❌ **Common Issues & Solutions**
+
+| Problem | Solution |
+|---------|----------|
+| ESP won't connect to Wi-Fi | ✅ Check credentials and signal strength |
+| No data on dashboard | ✅ Verify UDP port matches (4210) |
+| Dashboard won't load | ✅ Check Flask server logs and port 5000 |
+| Compilation errors | ✅ Install missing libraries via Library Manager |
+
+### 🔍 **Debug Mode**
+Enable debug output in Arduino IDE:
+```cpp
+#define DEBUG 1  // Add to top of sketch for debug info
+```
+
+---
+
+
+### 🌟 **Star this repository if it helped you!**
+
+**Built with ❤️ for the IoT and Cybersecurity Community**
+
